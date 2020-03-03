@@ -6,10 +6,10 @@ public class Main {
     public static void main(String[] args) {
         DemoObject object = new DemoObject("First test");
         System.out.println("Let the race begin!");
-        FirstThread first = new FirstThread(object);
+        Thread first = new Thread(new FirstThread(object));
         SecondThread second = new SecondThread(object);
         second.start();
-        first.run();
+        first.start();
         System.out.println(object);
     }
 }

@@ -1,18 +1,18 @@
 package threads;
 
-import model.DemoObject;
+import model.Counter;
 
 public class FirstThread implements Runnable {
-    private DemoObject input;
+    private static final int LIMIT = 100;
+    private Counter input;
 
-    public FirstThread(DemoObject input) {
+    public FirstThread(Counter input) {
         this.input = input;
     }
 
     public void run() {
-        while (input.getCounter() < 100) {
-            input.setCounter(input.getCounter() + 1);
-            System.out.println("First thread counter: " + input.getCounter());
+        while (input.getCounter() < LIMIT) {
+            System.out.println("First thread counter: " + input.count());
         }
     }
 }
